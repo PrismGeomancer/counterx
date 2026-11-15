@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CounterX · Post an offer</title>
+<meta name="description" content="Put a block in the safe at a fixed SOL price. Both legs settle in one transaction, or nothing moves.">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/config.js"></script>
+</head>
+<body data-page="new">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" data-shell></header>
+
+<main id="main">
+  <section class="sec first"><div class="wrap">
+    <div class="sec-h in"><span class="no">Ticket</span><h2 class="k-title">Post an <em>offer</em></h2><span class="sub">a fixed SOL price for the whole block, held in the safe, filled in one transaction</span></div>
+
+    <div class="nt-grid">
+      <form class="panel nt-form" novalidate>
+        <div class="nt-as" hidden><span class="lbl">Posting as</span><b class="num k-as">—</b></div>
+        <div class="nt-side" role="radiogroup" aria-label="Side">
+          <label><input type="radio" name="side" value="offer" checked><span><b>Offer</b>I hand tokens over, I get SOL</span></label>
+          <label><input type="radio" name="side" value="bid"><span><b>Bid</b>I hand SOL over, I get tokens</span></label>
+        </div>
+
+        <label class="nt-f"><span class="lbl">Coin</span>
+          <input name="mint" placeholder="Paste a contract address" autocomplete="off" spellcheck="false" required>
+          <span class="nt-coin k-coin muted">Paste an address, or pick one of today's busiest:</span>
+          <span class="nt-picks"></span>
+        </label>
+
+        <div class="nt-row">
+          <label class="nt-f"><span class="lbl">Size, % of supply</span>
+            <input name="pct" type="number" min="0.1" max="50" step="0.1" value="5" inputmode="decimal">
+            <span class="muted num k-tokens">—</span></label>
+          <label class="nt-f"><span class="lbl">Price for the block, SOL</span>
+            <input name="price" type="number" min="0" step="any" inputmode="decimal" placeholder="—">
+            <span class="num k-vs muted">—</span></label>
+        </div>
+        <div class="nt-quick"><span class="lbl">Price vs market</span><button type="button" data-vs="-10">−10 %</button><button type="button" data-vs="-5">−5 %</button><button type="button" data-vs="0">at market</button><button type="button" data-vs="5">+5 %</button></div>
+
+        <div class="nt-row">
+          <label class="nt-f"><span class="lbl">Smallest fill</span>
+            <select name="minFill"><option value="0">Any size</option><option value="25">A quarter of the block</option><option value="50">Half the block</option><option value="100">The whole block</option></select></label>
+          <label class="nt-f"><span class="lbl">Stays in the safe for</span>
+            <select name="expiry"><option value="3600">1 hour</option><option value="86400" selected>24 hours</option><option value="604800">7 days</option></select></label>
+        </div>
+        <div class="nt-row">
+          <label class="nt-f"><span class="lbl">Who can fill it</span>
+            <input name="buyer" placeholder="Anyone, or paste one wallet" autocomplete="off" spellcheck="false"></label>
+          <label class="nt-f k-lockf"><span class="lbl">Lock the buyer</span>
+            <select name="lock"><option value="">No lock</option><option value="7:30">7-day cliff, then 30 days linear</option><option value="30:90">30-day cliff, then 90 days linear</option></select></label>
+        </div>
+        <div class="nt-go">
+          <button class="btn btn-au k-submit" type="submit" disabled>Put it in the safe</button>
+          <span class="muted k-why">Paste a coin to get a quote.</span>
+        </div>
+        <div class="nt-done" hidden role="status">
+          <b>In the safe.</b>
+          <span class="k-done-t"></span>
+          <span class="nt-done-l"><a class="btn btn-au btn-sm" href="index.html#book">See it at the window</a><a class="btn btn-ln btn-sm" href="#tickets">My tickets</a><button class="btn btn-ln btn-sm k-again" type="button">Post another</button></span>
+        </div>
+      </form>
+
+      <aside class="nt-prev">
+        <div class="rcpt nt-rcpt">
+          <div class="rh"><span>RECEIPT</span><span class="k-no">No. —</span></div>
+          <div class="rl k-role">Seller</div><div class="rw k-rsym">—</div>
+          <dl>
+            <dt>hands over</dt><dd class="k-give">—</dd>
+            <dt>gets</dt><dd class="k-get">—</dd>
+            <dt>fee 1.00 %</dt><dd class="k-fee">—</dd>
+            <dt>smallest fill · stays</dt><dd class="k-terms">—</dd>
+          </dl>
+          <div class="nt-stamp" aria-hidden="true">STAMPED · 0.0&nbsp;%</div>
+        </div>
+        <div class="panel nt-cmp">
+          <div class="panel-h"><span class="t">Same block, two places</span></div>
+          <div class="nt-cmp-r"><span class="lbl dn">On the floor</span><b class="num dn k-fmove">—</b><span class="num muted k-fout">—</span></div>
+          <div class="nt-cmp-r"><span class="lbl au">At the counter</span><b class="num au">0.0&nbsp;%</b><span class="num muted k-cout">—</span></div>
+          <div class="nt-cmp-r f"><span>More SOL across the counter</span><b class="num up k-kept">—</b></div>
+          <p class="muted nt-src k-src">—</p>
+        </div>
+      </aside>
+    </div>
+  </div></section>
+
+  <section class="sec" id="tickets"><div class="wrap">
+    <div class="sec-h in"><span class="no">Yours</span><h2>My <em>tickets</em></h2><span class="sub">every offer and bid you have put in the safe; they also sit at the window</span></div>
+    <div class="panel"><div class="scroll"><table class="blot" id="mine">
+      <thead><tr><th class="w-mkt">Side</th><th>Coin</th><th class="r w-n">Size</th><th class="r w-n">Price, SOL</th><th class="r w-n h2">vs market</th><th class="h2 w-lock">Leaves the safe</th><th class="w-btn"><span class="sr">Take back</span></th></tr></thead>
+      <tbody></tbody></table></div></div>
+  </div></section>
+</main>
+
+<footer class="ftr" data-shell></footer>
+<script type="module" src="js/new.js"></script>
+</body>
+</html>

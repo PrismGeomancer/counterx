@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CounterX · The cost of size</title>
+<meta name="description" content="What one market sell does to a pump.fun coin, read from live reserves, against one transaction at the counter.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CounterX">
+<meta property="og:title" content="CounterX · The cost of size">
+<meta property="og:image" content="https://prismgeomancer.github.io/counterx/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Counterx_">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/config.js"></script>
+</head>
+<body data-page="coin">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" data-shell></header>
+
+<main id="main">
+  <section class="cp-head"><div class="wrap">
+    <a class="back" href="coins.html">← Every coin</a>
+    <div class="cp-id">
+      <span class="cp-img"><img class="k-img" alt="" referrerpolicy="no-referrer" hidden><span class="k-ph">—</span></span>
+      <div class="cp-name">
+        <h1><span class="k-sym">$—</span> <em class="k-name"></em></h1>
+        <div class="cp-links">
+          <button class="mint num" type="button" title="Copy the contract address"><span class="k-mint">—</span><svg viewBox="0 0 14 14" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4.5" y="4.5" width="8" height="8"/><path d="M9.5 4.5v-3h-8v8h3"/></svg></button>
+          <a class="ext k-dex" target="_blank" rel="noopener">DexScreener ↗</a><a class="ext k-scan" target="_blank" rel="noopener">Solscan ↗</a><a class="ext k-pump" target="_blank" rel="noopener">pump.fun ↗</a>
+        </div>
+      </div>
+    </div>
+    <dl class="cp-kv">
+      <div><dt>Market cap</dt><dd class="k-mc">—</dd></div>
+      <div><dt>Price</dt><dd class="k-px">—</dd></div>
+      <div><dt>Vol 1h</dt><dd class="k-vol">—</dd></div>
+      <div><dt>1h</dt><dd class="k-ch">—</dd></div>
+      <div><dt>Market</dt><dd class="k-mkt">—</dd></div>
+      <div><dt>Reserves</dt><dd class="k-src">—</dd></div>
+    </dl>
+  </div></section>
+
+  <section class="sec" id="size"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 01</span><h2>The cost of <em>size</em></h2><span class="sub"><span class="live-dot"></span>one market sell on the floor vs one transaction at the counter, from the pool's reserves right now</span></div>
+    <div class="cp-grid">
+      <div class="panel"><div class="scroll"><table class="blot" id="cost">
+        <thead><tr><th class="w-sz">Size</th><th class="r h2">Tokens</th><th class="r">Worth (SOL)</th><th class="r">Floor impact</th><th class="r h1">Floor pays</th><th class="r">Counter pays</th><th class="r">Kept</th></tr></thead>
+        <tbody></tbody></table></div></div>
+      <aside class="panel spark">
+        <div class="panel-h"><span class="t">Last hour</span><span class="r lbl k-sparkx">price in SOL</span></div>
+        <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path class="sp-area"/><path class="sp-line"/></svg>
+        <div class="sp-foot"><span class="num k-sp0">—</span><span class="num k-sp1">—</span></div>
+      </aside>
+    </div>
+    <p class="cp-note k-note">—</p>
+  </div></section>
+
+  <section class="sec" id="trades"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 02</span><h2>Shouted on the <em>floor</em></h2><span class="sub"><span class="live-dot"></span>this coin's trades of 1 % of supply or more, last 24 h, exact impact read from each transaction</span></div>
+    <div class="panel"><div class="scroll"><table class="blot" id="ctape">
+      <thead><tr><th class="w-time">Time</th><th class="w-mkt">Side</th><th class="r w-n">Size</th><th class="r h2 w-n">Tokens</th><th class="r w-n">SOL</th><th class="w-imp">Price impact</th><th class="r h1 w-n">Lost / overpaid</th><th class="h2 w-addr">Wallet</th><th class="h3 w-x"><span class="sr">Link</span></th></tr></thead>
+      <tbody></tbody></table></div></div>
+  </div></section>
+
+  <section class="sec" id="window"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 03</span><h2>At the <em>window</em></h2><span class="sub">hand a block of this coin over the counter</span></div>
+    <div class="cp-cta panel">
+      <div><b>Put this coin in the safe.</b><p>Name the size and the SOL price for the whole block. Partial fills, minimum fill, expiry, one named buyer or anyone. Both legs settle in one transaction, or nothing moves.</p><p class="muted">Pick a size and a price on the next page. It goes in the safe and shows at the window.</p></div>
+      <div class="cp-cta-b"><a class="btn btn-au k-offer" href="new.html">Post an offer</a><a class="btn btn-ln k-bid" href="new.html?side=bid">Place a bid</a></div>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ftr" data-shell></footer>
+<script type="module" src="js/coin.js"></script>
+</body>
+</html>

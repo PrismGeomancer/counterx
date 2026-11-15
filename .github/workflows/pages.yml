@@ -1,0 +1,48 @@
+# Test, build the floor snapshot, then publish only the site files to GitHub Pages.
+# The snapshot JSON is never committed to main: it ships inside the Pages artifact.
+# Each run merges the previously deployed data/floor.json (rolling 24 h). If the snapshot step fails, the last deployed one is kept.
+name: pages
+on:
+  push: { branches: [main] }
+  schedule: [{ cron: '*/10 * * * *' }]   # GitHub may delay scheduled runs, sometimes by 10+ minutes
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: pages, cancel-in-progress: false }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node --test test/*.test.mjs
+      - name: Previous snapshot (fallback if this run's snapshot fails)
+        id: site
+        run: |
+          URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/"
+          [ -n "${{ vars.SITE_URL }}" ] && URL="${{ vars.SITE_URL }}"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          mkdir -p data
+          for f in floor bands coins; do curl -fsS "${URL}data/$f.json" -o "data/$f.json" || rm -f "data/$f.json"; done
+      - name: Floor snapshot
+        env:
+          HELIUS_API_KEY: ${{ secrets.HELIUS_API_KEY }}
+          PREV_URL: ${{ steps.site.outputs.url }}
+          MAX_TX: ${{ vars.MAX_TX || '' }}
+        run: node scripts/floor.mjs
+      - name: Assemble _site
+        run: |
+          mkdir _site
+          cp -r *.html css js fonts img _site/
+          mkdir -p _site/data && cp data/*.json _site/data/
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: '${{ steps.d.outputs.page_url }}' }
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4

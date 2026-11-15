@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CounterX · Not at this window</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>
+// GitHub Pages has no rewrites. Old path URLs (/desk, /coin/<mint>, /deal/<pda>, …) become the hash form.
+(function () {
+  var p = location.pathname, base = p.replace(/\/(desk|coins|coin|deal|locks|ledger|docs|new|me)(\/.*)?$/, '/');
+  var m = p.match(/\/(desk|coins|coin|deal|locks|ledger|docs|new|me)(?:\/([^/?#]+))?\/?$/);
+  if (!m) return;
+  // pages that are not built yet land on the matching home section
+  var built = { coins: 1, coin: 1, new: 1 }, sect = { desk: 'book', coins: 'pool', coin: 'pool', deal: 'book', locks: 'how', ledger: 'tape', docs: 'how', new: 'book', me: 'book' };
+  var to = built[m[1]] ? base + m[1] + '.html' + (m[2] ? '#' + m[2] : '') : base + 'index.html#' + sect[m[1]];
+  location.replace(to);
+})();
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #12100d; color: #efe6d2; font: 400 16px/1.5 system-ui, sans-serif; text-align: center; padding: 16px; }
+  h1 { font: 400 40px/1.1 Georgia, serif; margin: 0 0 12px; } h1 em { color: #c9a25a; }
+  p { color: #b8ad96; margin: 0 0 24px; } a { color: #12100d; background: #c9a25a; padding: 12px 18px; text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+  <main><h1>Not at this <em>window</em>.</h1><p>This page does not exist. The counter is this way.</p><a href="./">Back to the counter →</a></main>
+</body>
+</html>

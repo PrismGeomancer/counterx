@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CounterX · Size goes over the counter</title>
+<meta name="description" content="Block trades for pump.fun tokens, off the pool. Escrowed on chain, settled in one transaction, every fill stamped into a public ledger.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CounterX">
+<meta property="og:title" content="CounterX · Size goes over the counter">
+<meta property="og:description" content="Block trades for pump.fun tokens, off the pool. Escrowed on chain, settled in one transaction, every fill stamped into a public ledger.">
+<meta property="og:image" content="https://prismgeomancer.github.io/counterx/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CounterX · Size goes over the counter">
+<meta name="twitter:description" content="Block trades for pump.fun tokens, off the pool. Escrowed on chain, settled in one transaction, every fill stamped into a public ledger.">
+<meta name="twitter:image" content="https://prismgeomancer.github.io/counterx/img/og.png">
+<meta name="twitter:site" content="@Counterx_">
+<link rel="canonical" href="https://prismgeomancer.github.io/counterx/">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/vault-door.webp" as="image">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/home.css">
+<script src="js/config.js"></script>
+</head>
+<body class="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" data-shell></header>
+
+<main id="main">
+  <section class="hero"><div class="wrap hero-in">
+    <div class="hcopy">
+      <div class="eyebrow">The counter · Solana</div>
+      <h1>Size goes over the <em>counter</em>.</h1>
+      <p class="lead">Block trades off the pool for pump.fun tokens. Escrowed on chain, settled in one transaction, every fill stamped into a public ledger.</p>
+      <div class="cta"><a class="btn btn-au" href="#book">Step up to the counter <span class="arrow" aria-hidden="true">→</span></a><a class="btn btn-ln" href="new.html">Post an offer</a></div>
+
+      <div class="outc" aria-live="polite">
+        <div class="outc-h"><span>Sell <b class="o-pct">5.00 %</b> of <b class="o-sym">—</b></span><span class="tok o-tok">—</span></div>
+        <div class="outc-k"><span></span><span>price impact</span></div>
+        <div class="orow floor"><div class="w"><b>ON THE FLOOR</b><span class="o-floor-w">one market sell, pool fee —</span></div><div class="big o-floor-big">—</div><div class="s o-floor-s">—</div></div>
+        <div class="orow counter"><div class="w"><b>AT THE COUNTER</b><span>one transaction, no pool swap: the price cannot move</span></div><div class="big">0.0&nbsp;%</div><div class="s o-counter-s">—</div></div>
+        <div class="outc-f"><span class="k">Same block, more SOL across the counter</span><span class="v o-diff">—</span></div>
+      </div>
+
+      <div class="hfeed"><div class="hfeed-h"><span class="lbl"><span class="live-dot"></span>Shouted on the floor · just now</span><a href="#pool">All <span aria-hidden="true">→</span></a></div><div id="hfeed"></div></div>
+    </div>
+    <div class="stage" id="stage" aria-label="The teller window: how one block crosses the counter"></div>
+  </div></section>
+
+  <section class="hstrip"><div class="wrap">
+    <div class="strip" id="strip">
+      <div><span class="lbl">Coins on the floor</span><span class="v" data-k="tracked">—</span></div>
+      <div><span class="lbl">5 % onto the floor · median</span><span class="v dn" data-k="median5">—</span></div>
+      <div><span class="lbl" data-k="big24l">Floor sells ≥ 1 % · 24 h</span><span class="v" data-k="big24">—</span></div>
+      <div><span class="lbl">Offers at the window<span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></span><span class="v" data-k="offers">—</span></div>
+      <div><span class="lbl">Bids at the window<span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></span><span class="v" data-k="bids">—</span></div>
+      <div><span class="lbl">Over the counter<span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></span><span class="v au" data-k="vol">—</span></div>
+      <div><span class="lbl">$COUNTERX burned<span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></span><span class="v" data-k="burned">—</span></div>
+    </div>
+    <p class="strip-note" data-k="floorAt" hidden></p>
+  </div></section>
+
+  <section class="sec" id="pool"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 01</span><h2>The <em>floor</em></h2><span class="sub"><span class="live-dot"></span>every sell of 1 % of supply or more, newest first, exact impact read from each transaction</span><a class="more" href="coins.html">Every coin's cost of size <span aria-hidden="true">→</span></a></div>
+    <div class="pgrid">
+      <div class="panel ptape"><div class="scroll"><table class="blot" id="pooltape">
+        
+        <thead><tr><th class="w-time">Time</th><th>Coin</th><th class="h3 w-mkt">Market</th><th class="r w-n">Size</th><th class="r h2 w-n">Sold</th><th class="r w-n">SOL out</th><th class="w-imp">Price impact</th><th class="r h1 w-n">Lost</th><th class="h2 w-addr">Seller</th><th class="h3 w-x"><span class="sr">Link</span></th></tr></thead>
+        <tbody></tbody></table></div></div>
+      <aside class="panel bands">
+        <div class="panel-h"><span class="t" data-b="win">Last 24 h, by size</span><span class="r lbl">median impact</span></div>
+        <div class="bands-hero"><span class="lbl">5 %+ of supply into a PumpSwap pool</span><b class="v dn" data-b="hero">—</b><span class="s" data-b="heroN">—</span></div>
+        <table class="blot bt">
+          <thead><tr><th style="width:24%">Size</th><th class="r">Curve</th><th class="r">PumpSwap</th></tr></thead><tbody id="bands"></tbody></table>
+        <div class="bands-lost"><span class="lbl">SOL lost on the floor</span><b class="dn" data-b="lost">—</b><span class="s" data-b="lostS">—</span></div>
+        <div class="bands-otc"><span class="lbl">At the counter, any size</span><b>0.0&nbsp;%</b></div>
+      </aside>
+    </div>
+  </div></section>
+
+  <section class="sec" id="tape"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 02</span><h2>Over the <em>counter</em><span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></h2><span class="sub"><span class="live-dot g"></span>the ledger: every fill, its price against the market, what the floor would have done</span><a class="more" href="#" data-soon>Ledger <span aria-hidden="true">→</span></a></div>
+    <p class="wif-note"><span class="wif">WHAT IF</span>No CounterX fills yet. These are the day's biggest real floor sells, re-quoted at the counter: same block, the price before the sell, 1.00 % fee.</p>
+    <div class="panel"><div class="scroll"><table class="blot" id="dealtape">
+      
+      <thead><tr><th class="w-time">Time</th><th>Coin</th><th class="r w-n">Size</th><th class="r w-n">SOL net</th><th class="r h2 w-n">vs market</th><th class="r h1 w-pl">On the floor</th><th class="r w-n">Kept</th><th class="h2 w-addr">Seller</th><th class="h2 w-addr">Buyer</th><th class="h3 w-lock">Lock</th><th class="h3 w-x"><span class="sr">Link</span></th></tr></thead>
+      <tbody></tbody></table></div></div>
+  </div></section>
+
+  <section class="sec" id="book"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 03</span><h2>The <em>window</em><span class="dev" hidden title="The program runs on devnet until its mainnet deploy: these are test fills, not volume.">devnet</span></h2><span class="sub">open offers and bids, held in the safe, filled in one transaction</span><a class="more" href="#" data-soon>Step up to the window <span aria-hidden="true">→</span></a></div>
+    <p class="wif-note"><span class="wif">WHAT IF</span>Your own tickets come first. Below them: big bags of the busiest coins and what selling them would do on the floor, and the day's big floor buys that a bid would have filled without moving the price.</p>
+    <div class="bgrid">
+      <div class="panel"><div class="panel-h"><span class="chip chip-dn">Offers</span><span class="t">Bags that would move the floor</span><span class="r num muted" id="offN"></span></div>
+        <table class="blot" id="offers">
+        <thead><tr><th>Coin</th><th class="r w-n">Size</th><th class="r w-n">Value</th><th class="r h2 w-n">Would move</th><th class="h3 w-lock">As of</th><th class="w-btn"><span class="sr">Action</span></th></tr></thead><tbody></tbody></table></div>
+      <div class="panel"><div class="panel-h"><span class="chip chip-up">Bids</span><span class="t">Big buys that moved it</span><span class="r num muted" id="bidN"></span></div>
+        <table class="blot" id="bids">
+        <thead><tr><th>Coin</th><th class="r w-n">Size</th><th class="r w-n">SOL</th><th class="r h2 w-n">Moved it</th><th class="h3 w-lock">Time</th><th class="w-btn"><span class="sr">Action</span></th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div></section>
+
+  <section class="sec" id="how"><div class="wrap">
+    <div class="sec-h"><span class="no">No. 04</span><h2>How the <em>counter</em> works</h2><a class="more" href="#how">How it works <span aria-hidden="true">→</span></a></div>
+    <ol class="how">
+      <li><span class="n">01</span><b>Hand it over</b><p>The seller puts the tokens in the safe at a fixed SOL price for the whole block. Partial fills, minimum fill, expiry, one named buyer or anyone. Take it back any time before a fill.</p></li>
+      <li><span class="n">02</span><b>Ask for it</b><p>A buyer puts SOL in the safe for N tokens at a fixed price. Any holder can fill it.</p></li>
+      <li><span class="n">03</span><b>Cross</b><p>One program instruction moves the tokens, the SOL and the fee. Both legs settle or the transaction fails. The floor is never touched.</p></li>
+      <li><span class="n">04</span><b>Lock</b><p>An offer can require a buyer lock: cliff plus linear unlock, held by the program. The buyer claims it on the Locks page.</p></li>
+    </ol>
+    <div class="fees">
+      <div><span class="lbl">Fee</span><b>1.00 %</b><span>of the SOL leg, paid by the token seller</span></div>
+      <div><span class="lbl">With 1,000,000 $COUNTERX</span><b>0.50 %</b><span>read on chain from the seller's wallet</span></div>
+      <div><span class="lbl">Fee split</span><b>50 / 50</b><span>buyback + burn of $COUNTERX · treasury</span></div>
+      <div><span class="lbl">Cap in the program</span><b>2.00 %</b><span>the admin can never set it higher</span></div>
+    </div>
+  </div></section>
+</main>
+
+<footer class="ftr" data-shell></footer>
+<script type="module" src="js/home.js"></script>
+</body>
+</html>

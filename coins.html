@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CounterX · Every coin's cost of size</title>
+<meta name="description" content="The busiest pump.fun coins today: what 5 % of supply does on the floor, read from live reserves.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CounterX">
+<meta property="og:title" content="CounterX · Every coin's cost of size">
+<meta property="og:image" content="https://prismgeomancer.github.io/counterx/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Counterx_">
+<meta name="theme-color" content="#12100d">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/pages.css">
+<script src="js/config.js"></script>
+</head>
+<body data-page="coins">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" data-shell></header>
+
+<main id="main">
+  <section class="sec first"><div class="wrap">
+    <div class="sec-h"><span class="no">Coins</span><h2>Every coin's cost of <em>size</em></h2><span class="sub"><span class="live-dot"></span>the busiest pump.fun pools today: what 5 % of supply does on the floor, from live reserves</span></div>
+    <div class="cs-bar">
+      <label class="cs-filter"><span class="sr">Filter by ticker</span><input type="search" placeholder="Filter by ticker" autocomplete="off" spellcheck="false"></label>
+      <div class="cs-seg" role="group" aria-label="Market"><button type="button" data-m="all" aria-pressed="true">All</button><button type="button" data-m="pool" aria-pressed="false">PumpSwap</button><button type="button" data-m="curve" aria-pressed="false">Curve</button></div>
+      <span class="cs-at muted num"></span>
+    </div>
+    <div class="panel"><div class="scroll"><table class="blot sortable" id="coins">
+      <thead><tr>
+        <th class="w-x num">#</th><th>Coin</th><th class="h3 w-mkt">Market</th>
+        <th class="r w-n" data-sort="mcUsd">Market cap</th><th class="r w-n h2" data-sort="vol1h">Vol 1h</th>
+        <th class="r w-n h1" data-sort="n">Big sells</th><th class="r w-n h2" data-sort="med">Their median</th>
+        <th class="w-imp" data-sort="move" aria-sort="ascending">5 % sell</th><th class="r w-n h1" data-sort="lost">SOL lost</th>
+      </tr></thead>
+      <tbody></tbody></table></div></div>
+    <p class="cp-note">The 5 % column uses reserves read in your browser (refreshed every minute; DexScreener's if the chain read fails). Big sells: trades of 1 % of supply or more in the floor snapshot. Click a coin for every size.</p>
+  </div></section>
+</main>
+
+<footer class="ftr" data-shell></footer>
+<script type="module" src="js/coins.js"></script>
+</body>
+</html>
